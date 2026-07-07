@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     // Configurando o Google ADK
     // Em um ambiente de produção real, as chaves seriam extraídas do process.env
     try {
-      const agent = new Agent({
+      const agent: any = new Agent({
         model: 'gemini-1.5-pro',
         instructions: `You are a Revenue Intelligence AI. Analyze the customer feedback and extract:
           - category (e.g. Feature Request, Bug Report, UX Issue, Pricing)

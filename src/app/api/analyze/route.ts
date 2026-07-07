@@ -19,12 +19,12 @@ export async function POST(req: Request) {
     try {
       const agent = new Agent({
         model: 'gemini-1.5-pro',
-        systemPrompt: `You are a Revenue Intelligence AI. Analyze the customer feedback and extract:
+        instructions: `You are a Revenue Intelligence AI. Analyze the customer feedback and extract:
           - category (e.g. Feature Request, Bug Report, UX Issue, Pricing)
           - sentiment (Positive, Neutral, Negative)
           - actionItem (What should the team do?)
           Return as strict JSON.`,
-      });
+      } as any);
 
       const response = await agent.run(text);
       
